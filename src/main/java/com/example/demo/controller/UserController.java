@@ -24,7 +24,7 @@ public class UserController
 		System.out.println("fneifjiejdiwejdiwjdi");
 		var abc = userRepository.findById(userId);
 		System.out.println(abc.toString());
-		return userRepository.findById(userId).get();
+		return abc.get();
 	}
 	
 }
