@@ -45,10 +45,6 @@ public class Schedule implements Serializable
     @Column(name = "en_loc")
     public String endLoc;
     
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "tid", referencedColumnName = "tid")
-    private Transport transport;
-    
     public ScheduleId getId()
     {
     	return new ScheduleId(tId,startTime);
