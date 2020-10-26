@@ -1,12 +1,10 @@
 package com.example.demo.model;
 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,17 +20,16 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "booking", schema="public")
-public class Booking {
+@Table (name = "transport", schema = "public")
+public class Transport 
+{
 	@Id
-	@Column(name = "bid")
-	public String bookingId;
-	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User user;
-    
 	@Column(name = "tid")
-    public String transportId;
-    
+	public String tId;
+	
+	@Column(name = "tinfo")
+	public String tInfo;
+	
+	@OneToOne(mappedBy = "transport",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	 private Schedule schedule;
 }
